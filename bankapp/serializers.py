@@ -61,6 +61,7 @@ class PasswordChangeSerializer(serializers.Serializer):
         user.set_password(self.validated_data['new_password'])
         user.save()
         return user
+
     
 class RecentActivitySerializer(serializers.ModelSerializer):
     customer = CustomerSerializer(read_only=True)
@@ -68,5 +69,3 @@ class RecentActivitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Loan
         fields = ['id', 'customer', 'loan_type', 'amount', 'status', 'created_at']
-
-        
